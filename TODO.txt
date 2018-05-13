@@ -1,0 +1,6 @@
+TODO:
+1. Optimize
+	- teach system to recognize cat
+	- account for most recent move in win 
+2. Arbitrary heuristic evaluator/symbol
+3. Mess around with pytorch
