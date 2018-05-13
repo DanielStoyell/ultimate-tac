@@ -59,8 +59,13 @@ def test_game(p1, p2, g):
 		print(g)
 
 	print(g.winner)
-	
-p2 = ai.Maximinian("O", ai.hval_boardwins, 2)
-p1 = ai.Maximinian("X", ai.hval_winloss, 2)
 
-get_stats(p1, p2, 100)
+def round_robin(players):
+	pass
+	
+p1 = ai.Maximinian("X", ai.hval_boardwins, 2)
+p2 = ai.Human("O")
+
+g = game.Game()
+
+test_game(p1, p2, g)

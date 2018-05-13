@@ -1,6 +1,6 @@
 TODO:
-1. Optimize
-	- teach system to recognize cat
+- Optimize
 	- account for most recent move in win 
-2. Arbitrary heuristic evaluator/symbol
-3. Mess around with pytorch
+- Arbitrary heuristic evaluator/symbol
+- Add verbosity/logs to ai
+- Mess around with pytorch

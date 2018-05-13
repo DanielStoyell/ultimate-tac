@@ -1,16 +1,32 @@
 import random
+import game as game_classes
 
-class AI:
+class Player:
 	def __init__(self, symbol):
 		self.symbol = symbol
 
 	def get_move(self, game):
 		return None
 
-	def get_heuristic_value(self, game):
-		return 0
+class Human(Player):
+	def get_move(self, game):
+		print(game)
+		move = None
+		while not move or not game.is_valid_move(move):
+			if move:
+				print("Invalid move! Try again")
+			try:
+				board = int(input("Choose a board, 1-9: "))-1
+				square = int(input("Choose a square, 1-9: "))-1
+				move = game_classes.Move((board//3, board%3), (square//3, square%3), self.symbol)
+				print(move)
+			except:
+				print("Invalid input! Try again")
+				move = None
+		return move
 
-class Dumbo(AI):
+
+class Dumbo(Player):
 	def get_move(self, game):
 		moves = game.get_valid_moves()
 		if len(moves) > 0:
@@ -18,9 +34,9 @@ class Dumbo(AI):
 		else:
 			return None
 
-class Maximinian(AI):
+class Maximinian(Player):
 	def __init__(self, symbol, evaluator, depth):
-		AI.__init__(self, symbol)
+		Player.__init__(self, symbol)
 		self.depth = depth
 		self.evaluator = evaluator
 
@@ -72,14 +88,6 @@ class Maximinian(AI):
 					break
 
 		return bestVal
-
-	def get_heuristic_value(self, game):
-		if game.winner == self.symbol:
-			return 1
-		elif game.winner:
-			return -1
-		else:
-			return 
 
 def hval_bad(game, symbol):
 	return 0
